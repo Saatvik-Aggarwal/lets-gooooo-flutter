@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
 
+import 'home.dart';
 import 'main.dart';
 
 class LoginPage extends StatefulWidget {
@@ -25,8 +26,10 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   final usernameController = TextEditingController();
   final passwordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
+    _read(context);
     return Material(
       child: Center(
         child: Column(
@@ -83,11 +86,13 @@ class _LoginPageState extends State<LoginPage> {
   }
 }
 
-_read() async {
+_read(context) async {
   final prefs = await SharedPreferences.getInstance();
   final key = 'authToken';
   final value = prefs.getString(key) ?? '';
-  print('read: $value');
+  if (value != '') {
+    Navigator.of(context).pushNamed(HomePage.route);
+  }
 }
 
 _login(username, password, context) async {

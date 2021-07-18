@@ -165,7 +165,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Text('placeholder', style: TextStyle(fontSize: 20)),
+                  child: Text('2021', style: TextStyle(fontSize: 20)),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
@@ -174,7 +174,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Text('placeholder', style: TextStyle(fontSize: 20)),
+                  child: Text('0', style: TextStyle(fontSize: 20)),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
@@ -183,7 +183,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Text('placeholder', style: TextStyle(fontSize: 20)),
+                  child: Text('0', style: TextStyle(fontSize: 20)),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
@@ -192,7 +192,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Text('placeholder', style: TextStyle(fontSize: 20)),
+                  child: Text('0', style: TextStyle(fontSize: 20)),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
@@ -201,7 +201,8 @@ class _ProfilePageState extends State<ProfilePage> {
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Text('placeholder', style: TextStyle(fontSize: 20)),
+                  child: Text('There\'s a first time for everything!',
+                      style: TextStyle(fontSize: 20)),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
@@ -209,7 +210,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Text('placeholder', style: TextStyle(fontSize: 20)),
+                  child: Text('---', style: TextStyle(fontSize: 20)),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
@@ -217,7 +218,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Text('placeholder', style: TextStyle(fontSize: 20)),
+                  child: Text('----', style: TextStyle(fontSize: 20)),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
@@ -226,7 +227,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Text('placeholder', style: TextStyle(fontSize: 20)),
+                  child: Text('----', style: TextStyle(fontSize: 20)),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
@@ -234,7 +235,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Text('placeholder', style: TextStyle(fontSize: 20)),
+                  child: Text('----', style: TextStyle(fontSize: 20)),
                 )
               ],
             ),
