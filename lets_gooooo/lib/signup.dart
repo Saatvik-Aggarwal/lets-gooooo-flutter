@@ -6,9 +6,9 @@ import 'package:http/http.dart' as http;
 
 import 'main.dart';
 
-class LoginPage extends StatefulWidget {
-  LoginPage({Key? key}) : super(key: key);
-  static const String route = '/login';
+class SignupPage extends StatefulWidget {
+  SignupPage({Key? key}) : super(key: key);
+  static const String route = '/signup';
   // This widget is the home page of your application. It is stateful, meaning
   // that it has a State object (defined below) that contains fields that affect
   // how it looks.
@@ -19,12 +19,14 @@ class LoginPage extends StatefulWidget {
   // always marked "final".
 
   @override
-  _LoginPageState createState() => _LoginPageState();
+  _SignupPageState createState() => _SignupPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _SignupPageState extends State<SignupPage> {
   final usernameController = TextEditingController();
   final passwordController = TextEditingController();
+  final emailController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Material(
@@ -33,7 +35,7 @@ class _LoginPageState extends State<LoginPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            Text('Login', style: TextStyle(fontSize: 30)),
+            Text('Sign Up', style: TextStyle(fontSize: 30)),
             Container(
               height: 50.0,
               width: 300.0,
@@ -41,6 +43,18 @@ class _LoginPageState extends State<LoginPage> {
               padding: const EdgeInsets.all(5.0),
               //decoration: BoxDecoration(
               //   border: Border.all(color: Color.fromRGBO(0, 0, 0, 1))),
+              child: TextField(
+                decoration: const InputDecoration(
+                  hintText: 'Email',
+                ),
+                controller: emailController,
+              ),
+            ),
+            Container(
+              height: 50.0,
+              width: 300.0,
+              margin: const EdgeInsets.all(5.0),
+              padding: const EdgeInsets.all(5.0),
               child: TextField(
                 decoration: const InputDecoration(
                   hintText: 'Username',
@@ -53,14 +67,11 @@ class _LoginPageState extends State<LoginPage> {
               width: 300.0,
               margin: const EdgeInsets.all(5.0),
               padding: const EdgeInsets.all(5.0),
-              //decoration: BoxDecoration(
-              //    border: Border.all(color: Color.fromRGBO(0, 0, 0, 1))),
               child: TextField(
                 decoration: const InputDecoration(
                   hintText: 'Password',
                 ),
                 controller: passwordController,
-                obscureText: true,
               ),
             ),
             Padding(
@@ -70,10 +81,10 @@ class _LoginPageState extends State<LoginPage> {
                   // Validate will return true if the form is valid, or false if
                   // the form is invalid.
 
-                  _login(usernameController.text, passwordController.text,
-                      context);
+                  _signup(emailController.text, usernameController.text,
+                      passwordController.text, context);
                 },
-                child: const Text('Login'),
+                child: const Text('Sign Up'),
               ),
             ),
           ],
@@ -83,21 +94,17 @@ class _LoginPageState extends State<LoginPage> {
   }
 }
 
-_read() async {
-  final prefs = await SharedPreferences.getInstance();
-  final key = 'authToken';
-  final value = prefs.getString(key) ?? '';
-  print('read: $value');
-}
-
-_login(username, password, context) async {
+_signup(email, username, password, context) async {
   final response = await http.post(
-    Uri.parse('https://lets-gooooo.herokuapp.com/login'),
+    Uri.parse('https://lets-gooooo.herokuapp.com/signup'),
     headers: <String, String>{
       'Content-Type': 'application/json; charset=UTF-8',
     },
-    body: jsonEncode(
-        <String, String>{'username': username, 'password': password}),
+    body: jsonEncode(<String, String>{
+      'username': username,
+      'email': email,
+      'password': password
+    }),
   );
 
   if (response.statusCode == 200) {
