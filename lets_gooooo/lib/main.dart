@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
   runApp(MyApp());
@@ -47,6 +48,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  final myController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -66,6 +68,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 }
                 return null;
               },
+              controller: myController,
             ),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 16.0),
@@ -74,7 +77,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   // Validate will return true if the form is valid, or false if
                   // the form is invalid.
                   if (_formKey.currentState!.validate()) {
-                    // Process data.
+                    _read();
+                    _save(myController.text);
                   }
                 },
                 child: const Text('Submit'),
@@ -85,4 +89,19 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
     );
   }
+}
+
+_read() async {
+  final prefs = await SharedPreferences.getInstance();
+  final key = 'my_string_key';
+  final value = prefs.getString(key) ?? '';
+  print('read: $value');
+}
+
+_save(value) async {
+  final prefs = await SharedPreferences.getInstance();
+  final key = 'my_string_key';
+
+  prefs.setString(key, value);
+  print('saved $value');
 }
