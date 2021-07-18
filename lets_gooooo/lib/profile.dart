@@ -29,37 +29,12 @@ class _ProfilePageState extends State<ProfilePage> {
           child: Row(
         children: [
           Expanded(
-            flex: 3,
-            child: Column(
-              children: [
-                Container(
-                    child: Image.network(
-                        'https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg')),
-                Container(
-                    child: Expanded(
-                        flex: 2,
-                        child: Column(
-                          children: [
-                            Text('Past Journeys'),
-                            Container(
-                                height: 50,
-                                child: Column(
-                                  children: [
-                                    Text('journey 1'),
-                                    Text('journey 2'),
-                                    Text('journey 3')
-                                  ],
-                                ))
-                          ],
-                        )))
-              ],
-            ),
-          ),
-          Expanded(
             flex: 4,
             child: Column(
               children: [
-                Center(child: Text('Profile')),
+                Center(
+                  child: Text('Profile', style: TextStyle(fontSize: 30)),
+                ),
                 Container(
                     alignment: Alignment.topLeft,
                     child: Container(
@@ -68,73 +43,110 @@ class _ProfilePageState extends State<ProfilePage> {
                         Container(
                             child: Column(
                           children: [
-                            Text('Change Email'),
-                            TextField(
-                              decoration: const InputDecoration(
-                                hintText: 'New Email',
+                            Container(
+                              alignment: Alignment.topLeft,
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text('Change Email',
+                                    style: TextStyle(fontSize: 25)),
                               ),
-                              controller: passwordChangeController,
                             ),
-                            ElevatedButton(
-                              onPressed: () {
-                                // Validate will return true if the form is valid, or false if
-                                // the form is invalid.
-                              },
-                              child: const Text('Change Email'),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: TextField(
+                                decoration: const InputDecoration(
+                                  hintText: 'New Email',
+                                ),
+                                controller: emailChangeController,
+                              ),
+                            ),
+                            Container(
+                              alignment: Alignment.bottomRight,
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: ElevatedButton(
+                                  onPressed: () {
+                                    // Validate will return true if the form is valid, or false if
+                                    // the form is invalid.
+                                  },
+                                  child: const Text('Change Email'),
+                                ),
+                              ),
                             ),
                           ],
                         )),
                         Container(
                             child: Column(
                           children: [
-                            Text('Change Username'),
-                            TextField(
-                              decoration: const InputDecoration(
-                                hintText: 'New Username',
+                            Container(
+                                alignment: Alignment.topLeft,
+                                child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Text('Change Username',
+                                      style: TextStyle(fontSize: 25)),
+                                )),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: TextField(
+                                decoration: const InputDecoration(
+                                  hintText: 'New Username',
+                                ),
+                                controller: usernameChangeController,
                               ),
-                              controller: emailChangeController,
                             ),
-                            ElevatedButton(
-                              onPressed: () {
-                                // Validate will return true if the form is valid, or false if
-                                // the form is invalid.
-                              },
-                              child: const Text('Change Username'),
+                            Container(
+                              alignment: Alignment.bottomRight,
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: ElevatedButton(
+                                  onPressed: () {
+                                    // Validate will return true if the form is valid, or false if
+                                    // the form is invalid.
+                                  },
+                                  child: const Text('Change Username'),
+                                ),
+                              ),
                             ),
                           ],
                         )),
                         Container(
                             child: Column(
                           children: [
-                            Text('Change Password'),
-                            TextField(
-                              decoration: const InputDecoration(
-                                hintText: 'New password',
+                            Container(
+                              alignment: Alignment.topLeft,
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text('Change Password',
+                                    style: TextStyle(fontSize: 25)),
                               ),
-                              controller: passwordChangeController,
                             ),
-                            ElevatedButton(
-                              onPressed: () {
-                                // Validate will return true if the form is valid, or false if
-                                // the form is invalid.
-                              },
-                              child: const Text('Change Password'),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: TextField(
+                                obscureText: true,
+                                decoration: const InputDecoration(
+                                  hintText: 'New Password',
+                                ),
+                                controller: passwordChangeController,
+                              ),
+                            ),
+                            Container(
+                              alignment: Alignment.bottomRight,
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: ElevatedButton(
+                                  onPressed: () {
+                                    // Validate will return true if the form is valid, or false if
+                                    // the form is invalid.
+                                  },
+                                  child: const Text('Change Password'),
+                                ),
+                              ),
                             ),
                           ],
                         )),
                       ],
                     ))),
-                Container(
-                    alignment: Alignment.bottomRight,
-                    child: Container(
-                        child: Column(
-                      children: [
-                        Container(
-                            child: Column(
-                          children: [],
-                        ))
-                      ],
-                    )))
               ],
             ),
           ),
@@ -142,24 +154,88 @@ class _ProfilePageState extends State<ProfilePage> {
             flex: 3,
             child: Column(
               children: [
-                Text('Hiking Since'),
-                Text('placeholder'),
-                Text('Total Points Collected'),
-                Text('placeholder'),
-                Text('Total Points Of Interest Visited'),
-                Text('placeholder'),
-                Text('Total Distance Hiked'),
-                Text('placeholder'),
-                Text('Journeys Completed'),
-                Text('placeholder'),
-                Text('Highest Point'),
-                Text('placeholder'),
-                Text('Average Speed'),
-                Text('placeholder'),
-                Text('Average Time Per Journey'),
-                Text('placeholder'),
-                Text('Last Journey'),
-                Text('placeholder')
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child:
+                      Text('User Statistics', style: TextStyle(fontSize: 30)),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text('Hiking Since:', style: TextStyle(fontSize: 20)),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text('placeholder', style: TextStyle(fontSize: 20)),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text('Total Points Collected:',
+                      style: TextStyle(fontSize: 20)),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text('placeholder', style: TextStyle(fontSize: 20)),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text('Total Points Of Interest Visited:',
+                      style: TextStyle(fontSize: 20)),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text('placeholder', style: TextStyle(fontSize: 20)),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text('Total Distance Hiked:',
+                      style: TextStyle(fontSize: 20)),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text('placeholder', style: TextStyle(fontSize: 20)),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text('Journeys Completed:',
+                      style: TextStyle(fontSize: 20)),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text('placeholder', style: TextStyle(fontSize: 20)),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text('Highest Point:', style: TextStyle(fontSize: 20)),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text('placeholder', style: TextStyle(fontSize: 20)),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text('Average Speed:', style: TextStyle(fontSize: 20)),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text('placeholder', style: TextStyle(fontSize: 20)),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text('Average Time Per Journey:',
+                      style: TextStyle(fontSize: 20)),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text('placeholder', style: TextStyle(fontSize: 20)),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text('Last Journey:', style: TextStyle(fontSize: 20)),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text('placeholder', style: TextStyle(fontSize: 20)),
+                )
               ],
             ),
           )
